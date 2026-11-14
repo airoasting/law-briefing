@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="2025~2026 상법 개정이 상장회사 경영진에게 무엇을 의미하는지, 이번 주총 시즌 전에 무엇을 정해야 하는지 정리한 경영진용 브리핑">
+<title>독립이사 시대 경영 시사점</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+/* Layout: 경영진 메모 한 장. 맨 위 한 문장과 회사 규모 스위치, 그 아래 '바뀐 것 → 그래서 → 할 일' 다섯 장, 역할별 렌즈, 주총 전 결정 목록. 법률 상세는 legal.html로 넘긴다. */
+html{color-scheme:light;font-size:18px}
+:root{
+  --bg:#FFFFFF; --paper:#FFFFFF; --ink:#1A1A1A; --navy:#1A1A1A; --navy-2:#333333; --muted:#5F6368; --rule:#E3E3E3; --rule-strong:#1A1A1A;
+  --accent:#8E1F2F; --accent-soft:#F4E4E7; --warn:#8A5A00; --warn-soft:#F8EBCB; --stop:#8E1F2F; --stop-soft:#F4E4E7; --on-navy:#FFFFFF; --tint:#F5F5F5; --hero:#7A1F2B; --on-hero:#FFFFFF; --on-hero-muted:rgba(255,255,255,.82);
+  --f-display:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --f-body:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --f-mono:"Pretendard Variable",Pretendard,-apple-system,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:19px;line-height:1.75;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px;word-break:keep-all;overflow-wrap:break-word}
+.wrap{max-width:1120px;margin:0 auto;display:flex;flex-direction:column;gap:72px}
+h1,h2,h3{margin:0;text-wrap:balance;letter-spacing:-.02em}
+h2{font-family:var(--f-display);font-size:2rem;font-weight:700;color:var(--ink);letter-spacing:-.025em}
+p{margin:0}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.label{font-size:.84rem;letter-spacing:.1em;color:var(--muted);font-weight:600;text-transform:uppercase}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr) auto;column-gap:14px;align-items:baseline;gap:4px 12px;border-top:2px solid var(--rule-strong);padding-top:18px;border-bottom:0}
+.sec-head::before{content:counter(sec,decimal-leading-zero);counter-increment:sec;font-weight:700;font-size:1.1rem;color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.wrap{counter-reset:sec}
+@media (max-width:520px){.sec-head{grid-template-columns:auto minmax(0,1fr)}.sec-head .label{grid-column:2}}
+.sec-head .label{margin-left:auto;align-self:end}
+section{display:flex;flex-direction:column;gap:20px}
+
+/* hero */
+.cover{background:var(--hero);color:var(--on-hero);margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));margin-top:-28px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px}
+.cover-in{max-width:1120px;margin:0 auto;display:flex;flex-direction:column;gap:34px}
+.wrap{padding-top:0}
+.top{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:.82rem;color:var(--on-hero-muted);border-bottom:1px solid var(--rule);padding-bottom:14px}
+.top a{margin-left:auto;color:var(--accent);font-weight:600}
+.hero{display:flex;flex-direction:column;gap:22px;padding-block:18px 10px}
+.hero::before{content:"";width:56px;height:4px;background:var(--accent)}
+.hero .kicker{font-size:.8rem;font-weight:700;color:var(--accent);letter-spacing:.14em;text-transform:uppercase}
+.hero h1{font-family:var(--f-display);font-weight:700;font-size:clamp(1.9rem,4.9vw,3.3rem);line-height:1.2;letter-spacing:-.035em;color:var(--on-hero);max-width:none}
+@media (min-width:760px){.hero h1{white-space:nowrap}}
+@media (max-width:759px){.h1br{display:none}}
+.hero h1 em{font-style:normal;color:var(--on-hero);background:linear-gradient(transparent 52%,rgba(204,0,0,.26) 52%,rgba(204,0,0,.26) 94%,transparent 94%);padding:0 .06em;margin:0 -.06em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.sowhat{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 16px;align-items:baseline;max-width:none}
+.sowhat .ln{display:block}
+@media (min-width:760px){.sowhat .ln{white-space:nowrap}.sowhat p{font-size:clamp(16px,1.8vw,21px)!important}}
+.sowhat .tag{font-size:.84rem;font-weight:700;letter-spacing:.12em;color:var(--accent);text-transform:uppercase}
+.sowhat p{font-size:1.1rem;color:var(--on-hero);line-height:1.7;opacity:.92}
+.cover .meta{font-size:.8rem;line-height:1.7;color:var(--on-hero-muted);max-width:none;width:100%;border-top:1px solid var(--rule);padding-top:14px}
+
+
+/* switch */
+.switch{display:flex;flex-direction:column;gap:16px;background:var(--paper);border:1px solid var(--rule);padding:24px 26px;margin-top:-40px;position:relative;z-index:1;box-shadow:0 10px 28px -22px rgba(0,0,0,.3)}
+.switch-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 14px}
+.seg-note{margin-top:-8px;text-align:right;font-size:.82rem}
+.switch-row b{font-size:.95rem}
+.seg{display:inline-flex;border:1px solid var(--rule-strong);border-radius:0;overflow:hidden;background:var(--bg)}
+.seg button{font:inherit;font-size:.9rem;font-weight:600;background:transparent;color:var(--ink);border:0;padding:8px 16px;cursor:pointer}
+.seg button+button{border-left:1px solid var(--rule-strong)}
+.seg button[aria-pressed="true"]{background:var(--accent);color:#fff}
+.mine{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:18px}
+@media (max-width:700px){.mine{grid-template-columns:1fr}}
+.mine h3{font-size:.86rem;color:var(--muted);font-weight:600;margin-bottom:6px}
+.mine ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.mine li{display:grid;grid-template-columns:1.2rem minmax(0,1fr);gap:6px;font-size:.95rem}
+.mine li::before{content:"■";color:var(--accent);font-size:.84rem;line-height:2.1}
+.mine li.no::before{content:"·";color:var(--muted)}
+.mine li.no{color:var(--muted)}
+.dates{display:flex;flex-direction:column;gap:6px}
+.dates div{display:grid;grid-template-columns:7.2rem minmax(0,1fr);gap:8px;font-size:.92rem}
+.dates .mono{font-size:.86rem}
+.dates .due{color:var(--accent);font-weight:700}
+[hidden]{display:none!important}
+
+/* cards */
+.cards{display:flex;flex-direction:column;gap:14px}
+.card{background:var(--paper);border:0;border-top:1px solid var(--rule);display:grid;grid-template-columns:4.2rem minmax(0,1fr)}
+.cards{gap:0}
+.cards .card:first-child{border-top:0}
+.card .no{font-family:var(--f-display);font-weight:700;font-size:2rem;color:var(--accent);padding:26px 0 0 0;font-variant-numeric:tabular-nums;line-height:1}
+.card .in{padding:26px 0 30px 0;display:flex;flex-direction:column;gap:14px}
+.card h3{font-family:var(--f-display);font-weight:700;font-size:1.45rem;line-height:1.35;color:var(--ink);letter-spacing:-.02em}
+.card h3 .scope{font-family:var(--f-body);font-size:.84rem;font-weight:700;color:var(--muted);border:1px solid var(--rule);padding:1px 6px;border-radius:2px;margin-left:6px;vertical-align:3px;white-space:nowrap}
+.row{display:grid;grid-template-columns:6.2rem minmax(0,1fr);gap:12px;align-items:baseline}
+.row .k{font-size:.84rem;font-weight:700;letter-spacing:.04em;color:var(--muted)}
+.row.so .k{color:var(--accent)}
+.row .k{text-transform:uppercase;letter-spacing:.1em}
+
+.row.so p{font-weight:600}
+.row.now .k{color:var(--ink)}
+.row p{font-size:.95rem}
+.row .src{display:block;font-size:.84rem;color:var(--muted);font-weight:400;margin-top:2px}
+@media (max-width:520px){.card{grid-template-columns:1fr}.card .no{padding:22px 0 0}.card .in{padding:8px 0 24px}.row{grid-template-columns:1fr;gap:0}}
+.card.is-dim{opacity:.35}
+@media (prefers-reduced-motion:no-preference){.card{transition:opacity .2s}}
+
+/* lens */
+.lens-tabs{display:flex;flex-wrap:wrap;gap:0;border-bottom:1px solid var(--rule)}
+.lens-tabs button{font:inherit;font-size:.92rem;font-weight:600;background:transparent;color:var(--ink);border:0;border-bottom:3px solid transparent;border-radius:0;padding:8px 2px;margin-right:18px;cursor:pointer}
+.lens-tabs button[aria-selected="true"]{border-bottom-color:var(--accent);color:var(--accent)}
+.lens-panel{background:var(--paper);border:0;padding:8px 0 0;display:flex;flex-direction:column;gap:14px}
+.lens-panel .say{font-family:var(--f-display);font-weight:700;font-size:1.4rem;line-height:1.45;color:var(--ink);letter-spacing:-.02em;max-width:none}
+.lens-panel .say .ln{display:inline}
+.lens-panel ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:0;font-size:.97rem}
+.lens-panel li{padding:12px 0;border-top:1px solid var(--rule)}
+.lens-panel .src{font-size:.8rem;color:var(--muted)}
+
+/* stop + decisions */
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:18px}
+@media (max-width:760px){.two{grid-template-columns:1fr}}
+.stop{background:var(--tint);border:0;padding:22px 24px;display:flex;flex-direction:column;gap:12px}
+.stop h3{color:var(--accent);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase}
+.stop ul{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:8px;font-size:.93rem}
+.dec{display:flex;flex-direction:column;border-top:2px solid var(--rule-strong)}
+.dec li{list-style:none;display:grid;grid-template-columns:1.8rem minmax(0,1fr) auto;gap:8px;padding:11px 2px;border-bottom:1px solid var(--rule);align-items:baseline}
+.dec ol{margin:0;padding:0}
+.dec .n{font-family:var(--f-mono);color:var(--accent);font-weight:700;font-size:.9rem}
+.dec b{font-size:.96rem}
+.dec .when{font-family:var(--f-mono);font-size:.82rem;color:var(--ink);font-weight:600;white-space:nowrap}
+.dec .sub{display:block;font-size:.82rem;color:var(--muted)}
+.dec li.is-dim{opacity:.35}
+
+
+.note{font-size:.88rem;color:var(--muted)}
+.foot{border-top:2px solid var(--rule-strong);padding-top:20px;font-size:.84rem;color:var(--muted);display:flex;flex-direction:column;gap:12px}
+.cta{display:inline-flex;align-self:flex-start;gap:8px;align-items:center;border:0;padding:12px 22px;font-weight:700;text-decoration:none;color:#fff;background:var(--accent);border-radius:0}
+.cta:hover{background:#6E1724}
+
+/* timeline */
+.laws{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:640px){.laws{grid-template-columns:1fr}}
+.law{background:var(--paper);border:0;border-top:2px solid var(--rule-strong);border-bottom:2px solid var(--rule-strong);padding:16px 0 18px;display:flex;flex-direction:column;gap:4px}
+.laws{margin-bottom:12px}
+.law .r{font-size:.84rem;font-weight:700;color:var(--accent);letter-spacing:.1em;text-transform:uppercase}
+.law .d{font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-weight:700;font-size:1.05rem}
+.law p{font-size:.86rem;color:var(--muted)}
+.tl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.tl li{display:grid;grid-template-columns:7rem 1rem minmax(0,1fr);gap:0 12px}
+.tl .d{font-variant-numeric:tabular-nums;font-size:.9rem;font-weight:600;padding-top:1px}
+.tl .dot{position:relative}
+.tl .dot::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--rule);transform:translateX(-50%)}
+.tl .dot::after{content:"";position:absolute;left:50%;top:8px;width:9px;height:9px;border-radius:50%;background:var(--paper);border:2px solid var(--ink);transform:translateX(-50%)}
+.tl li.past .dot::after{background:var(--ink)}
+.tl li.due .dot::after{background:var(--accent);border-color:var(--accent);width:12px;height:12px;top:6px}
+.tl li.due .d,.tl li.due b{color:var(--accent)}
+.tl li.today .dot::after{background:var(--ink);border-color:var(--ink);border-radius:0}
+.tl li.today .d,.tl li.today b{color:var(--ink)}
+.tl .body{padding-bottom:16px;display:flex;flex-direction:column;gap:2px}
+.tl .body b{font-size:.96rem}
+.tl .body span{font-size:.84rem;color:var(--muted)}
+.tl .st{display:inline-block;font-size:.84rem;font-weight:700;padding:0 6px;border-radius:2px;margin-left:6px;vertical-align:2px;border:1px solid var(--rule);color:var(--muted)}
+.tl li.is-dim{opacity:.35}
+@media (max-width:480px){.tl li{grid-template-columns:5.9rem .9rem minmax(0,1fr);gap:0 8px}}
+
+/* liability */
+.tbl{overflow-x:auto;border:0;border-top:2px solid var(--rule-strong);background:var(--paper)}
+.tbl table{border-collapse:collapse;width:100%;font-size:.9rem;min-width:560px}
+.tbl th,.tbl td{text-align:left;vertical-align:top;padding:11px 12px;border-bottom:1px solid var(--rule)}
+.tbl th{font-size:.84rem;font-weight:700;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;background:transparent}
+.tbl tr:last-child td{border-bottom:0}
+.tbl td:first-child{font-weight:700;white-space:nowrap}
+.tbl .src{display:block;font-size:.84rem;color:var(--muted);margin-top:2px}
+.tbl .new{display:inline-block;font-size:.84rem;font-weight:700;color:#fff;background:var(--accent);padding:0 6px;border-radius:0;margin-right:6px;letter-spacing:.06em}
+.shield{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:640px){.shield{grid-template-columns:1fr}}
+.shield div{border-top:2px solid var(--rule-strong);padding-top:12px;display:flex;flex-direction:column;gap:4px}
+.shield b{font-size:.96rem}
+.shield p{font-size:.86rem;color:var(--muted)}
+
+/* minutes & articles */
+.docs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:700px){.docs{grid-template-columns:1fr}}
+.doc{background:var(--paper);border:0;border-top:2px solid var(--rule-strong);padding:18px 0;display:flex;flex-direction:column;gap:12px}
+.doc h3{font-size:1.05rem}
+.doc .lead{font-size:.92rem;font-weight:600}
+.doc ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px}
+.doc li{display:grid;grid-template-columns:1.1rem minmax(0,1fr);gap:6px;font-size:.9rem}
+.doc li::before{content:"■";color:var(--accent);font-size:.84rem;line-height:2.3}
+.doc li.is-dim{opacity:.35}
+.doc li .scope{font-size:.84rem;font-weight:700;color:var(--muted);border:1px solid var(--rule);padding:0 5px;border-radius:2px;margin-left:4px;white-space:nowrap}
+.doc li .src{display:block;font-size:.84rem;color:var(--muted);margin-top:1px}
+
+/* strong red hero overrides */
+.cover .top{border-bottom-color:rgba(255,255,255,.3)}
+.cover .top a{color:#fff}
+.cover .hero::before{background:#fff}
+.cover .hero .kicker,.cover .sowhat .tag{color:#fff}
+.cover .hero h1 em{background:linear-gradient(transparent 56%,rgba(0,0,0,.28) 56%,rgba(0,0,0,.28) 94%,transparent 94%)}
+.cover .meta{border-top-color:rgba(255,255,255,.3)}
+.cover ::selection{background:#fff;color:#8E1F2F}
+
+/* hero line art: boardroom table, 12 seats, 4 independent (1/3) */
+.cover{position:relative;overflow:hidden}
+.cover-in{position:relative;z-index:1}
+.hero-art{position:absolute;z-index:0;pointer-events:none;right:-200px;top:50%;transform:translateY(-46%);width:min(660px,62vw);height:auto;opacity:.18}
+.hero-art .ind{stroke-width:1.2;stroke-dasharray:3 4}
+@media (max-width:760px){.hero-art{width:110vw;right:-30vw;opacity:.12}}
+
+/* burgundy gradient hero */
+.cover{background:linear-gradient(120deg,#4A0F1A 0%,#7A1F2B 48%,#A8323F 100%)}
+
+/* pill badges for numbers and labels */
+.sec-head::before{display:inline-flex;align-items:center;justify-content:center;justify-self:start;align-self:center;min-width:2.6rem;height:1.7rem;padding:0 .7rem;border-radius:999px;background:var(--accent);color:#fff;font-size:.86rem;font-weight:700;letter-spacing:.02em;line-height:1}
+
+.card .no{display:inline-flex;align-items:center;justify-content:center;align-self:start;justify-self:start;min-width:2.2rem;height:2.2rem;padding:0 .6rem;margin-top:26px;border-radius:999px;background:var(--accent);color:#fff;font-size:1rem;font-weight:700;line-height:1}
+@media (max-width:520px){.card .no{margin-top:22px}}
+.row .k{display:inline-flex;align-items:center;justify-content:center;justify-self:start;height:1.55rem;padding:0 .65rem;border-radius:999px;border:1px solid var(--rule-strong);color:var(--ink);font-size:.84rem;letter-spacing:.04em;line-height:1;white-space:nowrap}
+.row.so .k{background:var(--accent);border-color:var(--accent);color:#fff}
+.row.now .k{background:var(--ink);border-color:var(--ink);color:#fff}
+.row{align-items:start}
+.row .k{margin-top:.15rem}
+.dec .n{display:inline-flex;align-items:center;justify-content:center;min-width:2rem;height:1.5rem;padding:0 .5rem;border-radius:999px;background:var(--accent);color:#fff;font-size:.84rem;line-height:1;align-self:center}
+.dec li{align-items:center}
+.sowhat .tag{display:inline-flex;align-items:center;height:1.6rem;padding:0 .75rem;border-radius:999px;background:#fff;color:var(--burg-hero,#7A1F2B)!important;font-size:.84rem;letter-spacing:.06em;line-height:1}
+.sowhat{align-items:center}
+.law .r{display:inline-flex;align-self:flex-start;align-items:center;height:1.55rem;padding:0 .7rem;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+
+/* keep dates on one line */
+td.mono,.tl .d,.dates .mono,.dec .when,.law .d{white-space:nowrap}
+
+/* top menu: two pages */
+.menu{margin-left:auto;display:inline-flex;gap:6px}
+.menu a{display:inline-flex;align-items:center;justify-content:center;width:7.6rem;height:2rem;padding:0 .6rem;border-radius:999px;border:1px solid rgba(255,255,255,.55);color:#fff;font-size:.86rem;font-weight:600;text-decoration:none;white-space:nowrap}
+.menu a:hover{background:rgba(255,255,255,.14)}
+.menu a[aria-current="page"]{background:#fff;color:#7A1F2B;border-color:#fff}
+.top{align-items:center}
+@media (max-width:640px){.menu{margin-left:0;width:100%}}
+
+.agenda{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin:0}
+.agenda .ag-t{font-size:.84rem;font-weight:700;letter-spacing:.06em;color:#fff;margin-right:4px}
+.agenda .ag{display:inline-flex;align-items:center;height:1.9rem;padding:0 .9rem;border-radius:999px;border:1px solid rgba(255,255,255,.55);color:#fff;font-size:.88rem;font-weight:600;white-space:nowrap}
+.dec .when{text-align:right}
+</style>
+</head>
+<body>
+<div class="cover"><svg class="hero-art" viewBox="0 0 600 420" aria-hidden="true" focusable="false">
+  <g fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="300" cy="207" r="196" stroke-width="1" opacity=".5"/>
+    <circle cx="300" cy="207" r="150" stroke-width="1" opacity=".35" stroke-dasharray="2 7"/>
+    <rect x="140" y="132" width="320" height="150" rx="75"/>
+    <rect x="152" y="144" width="296" height="126" rx="63" opacity=".5"/>
+    <rect x="172" y="88" width="40" height="26" rx="8"/><rect x="232" y="88" width="40" height="26" rx="8"/><rect class="ind" x="226" y="82" width="52" height="38" rx="12"/><rect x="292" y="88" width="40" height="26" rx="8"/><rect x="352" y="88" width="40" height="26" rx="8"/><rect class="ind" x="346" y="82" width="52" height="38" rx="12"/><rect x="412" y="88" width="40" height="26" rx="8"/><rect x="172" y="288" width="40" height="26" rx="8"/><rect x="232" y="288" width="40" height="26" rx="8"/><rect class="ind" x="226" y="282" width="52" height="38" rx="12"/><rect x="292" y="288" width="40" height="26" rx="8"/><rect x="352" y="288" width="40" height="26" rx="8"/><rect class="ind" x="346" y="282" width="52" height="38" rx="12"/><rect x="412" y="288" width="40" height="26" rx="8"/><rect x="92" y="187" width="26" height="40" rx="8"/><rect x="482" y="187" width="26" height="40" rx="8"/>
+    <g transform="translate(262 168) rotate(-6)">
+      <rect x="0" y="0" width="64" height="80" rx="3"/>
+      <path d="M12 16h40M12 28h40M12 40h28M12 56h20"/>
+      <path d="M36 60l8 8 14-18" stroke-width="2"/>
+    </g>
+  </g>
+</svg><div class="cover-in">
+<div class="top">
+  <span>경영진 메모</span><span aria-hidden="true">·</span>
+  <span>기준: 2026년 11월</span>
+  <nav class="menu" aria-label="페이지"><a href="index.html" aria-current="page">경영진 시사점</a><a href="legal.html">법률 상세</a></nav>
+</div>
+
+<header class="hero">
+  <span class="kicker">2025~2026 상법 개정 · 경영진 시사점</span>
+  <h1>이제 이사회는 모든 결정이 <em>일반주주에게도<br class="h1br">공평했는지</em> 설명할 수 있어야 합니다.</h1>
+  <div class="sowhat">
+    <span class="tag">시사점</span>
+    <p><span class="ln">결론부터 말씀드리면, 결정 자체보다 결정의 근거를 어떻게 남기느냐가 관건입니다.</span> <span class="ln">12월 결산 상장사라면 2027년 3월 정기주총이 독립이사 요건을 맞출 마지막 정기주총입니다.</span></p>
+  </div>
+  <p class="agenda"><span class="ag-t">이번 분기 이사회 안건</span><span class="ag">독립이사 후보 일정 · 12월</span><span class="ag">이해상충 안건 기록 방식 · 다음 이사회</span><span class="ag">자기주식 소각 또는 보유 · 2027 주총 전</span></p>
+  <p class="meta">법률 자문이 아닌 일반 정보입니다. Claude를 활용해 법제처 국가법령정보센터의 법령 원문과 대조해 작성했고, 기준일은 2026년 11월입니다. 전체 고지는 페이지 하단에 있습니다.</p>
+</header>
+</div></div>
+
+<div class="wrap">
+
+
+<div class="switch" role="group" aria-labelledby="sw-label">
+  <div class="switch-row">
+    <b id="sw-label">귀사는 어디에 해당하시나요?</b>
+    <div class="seg" id="seg">
+      <button type="button" id="s-unlisted" data-v="unlisted" aria-pressed="false">비상장사</button>
+      <button type="button" id="s-small" data-v="small" aria-pressed="true">상장사 · 자산 2조원 미만</button>
+      <button type="button" id="s-large" data-v="large" aria-pressed="false">상장사 · 자산 2조원 이상</button>
+    </div>
+  </div>
+  <p class="note seg-note">자산총액은 최근 사업연도 말 기준</p>
+  <div class="mine">
+    <div>
+      <h3>귀사 적용 사항</h3>
+      <ul data-for="small">
+        <li><span><b>독립이사 3분의 1</b>, 2027-07-22까지 (4분의 1에서 상향)</span></li>
+        <li><span><b>충실의무 확대</b>, 이미 시행 중</span></li>
+        <li><span><b>자기주식 소각 원칙</b>, 이미 시행 중</span></li>
+        <li class="no"><span>집중투표 배제 금지, 분리선출 2명, 전자주총 의무는 해당 없음</span></li>
+      </ul>
+      <ul data-for="unlisted" hidden>
+        <li><span><b>충실의무 확대</b>, 이미 시행 중. 비상장 주식회사 이사에게도 똑같이 적용됩니다</span></li>
+        <li><span><b>자기주식 소각 원칙</b>, 이미 시행 중. 법문상 '회사'로 되어 있어 비상장사도 포함하는 것으로 읽힙니다. 다만 과태료 조항은 상장회사(그 이사 등)에만 적용되니 적용 범위는 법무팀 확인이 필요합니다</span></li>
+        <li class="no"><span>독립이사 비율, 감사위원 3% 룰과 분리선출, 집중투표, 전자주총은 상장회사 특례라 해당 없음</span></li>
+      </ul>
+      <ul data-for="large" hidden>
+        <li><span><b>충실의무 확대</b>, 이미 시행 중</span></li>
+        <li><span><b>자기주식 소각 원칙</b>, 이미 시행 중</span></li>
+        <li><span><b>집중투표 배제 금지, 분리선출 감사위원 2명</b>, 2026-09-10부터</span></li>
+        <li><span><b>전자주주총회 의무</b>, 2027-01-01부터</span></li>
+        <li class="no"><span>독립이사는 기존 과반수·3명 이상 요건 그대로라 영향 작음</span></li>
+      </ul>
+    </div>
+    <div>
+      <h3>주요 일정</h3>
+      <div class="dates" data-for="small">
+        <div><span class="mono">2026-12</span><span>독립이사 부족 인원 확정</span></div>
+        <div><span class="mono">2027-02 초</span><span>주총 소집 이사회, 후보 확정</span></div>
+        <div><span class="mono due">2027-07-22</span><span class="due">독립이사 3분의 1 기한</span></div>
+        <div><span class="mono">2027-09 초</span><span>기존 자기주식 소각 기한 (법무팀 확인)</span></div>
+      </div>
+      <div class="dates" data-for="unlisted" hidden>
+        <div><span class="mono">다음 이사회</span><span>이해상충 안건 검토·의사록 양식 도입</span></div>
+        <div><span class="mono">2027 주총 전</span><span>자기주식 소각 또는 보유 계획 확정</span></div>
+        <div><span class="mono">2027-09 초</span><span>기존 자기주식 소각 기한 (법무팀 확인)</span></div>
+      </div>
+      <div class="dates" data-for="large" hidden>
+        <div><span class="mono">2026-12</span><span>전자주총 업체 계약</span></div>
+        <div><span class="mono due">2027-01-01</span><span class="due">전자주주총회 의무 시작</span></div>
+        <div><span class="mono">2027-02</span><span>집중투표 청구 마감 (전년 주총일 기준 6주 전), 3% 합산 의결권 계산</span></div>
+        <div><span class="mono">2027-09 초</span><span>기존 자기주식 소각 기한 (법무팀 확인)</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="when">
+  <div class="sec-head"><h2>관련 법은 어떻게 바뀌었는가?</h2><span class="label">공포 · 시행 · 유예</span></div>
+  <p>상법은 세 차례에 걸쳐 개정됐습니다. 정리하면, 2026년 11월 현재 전자주주총회를 제외한 나머지 조항은 모두 시행되고 있습니다. 실무에서 가장 중요한 날짜는 독립이사 3분의 1 요건을 맞춰야 하는 2027년 7월 22일입니다.</p>
+  <div class="laws">
+    <div class="law"><span class="r">1차 개정 · 법률 제20991호</span><span class="d">2025-07-22 공포</span><p>충실의무, 독립이사, 감사위원 3% 룰, 전자주주총회</p></div>
+    <div class="law"><span class="r">2차 개정 · 법률 제21044호</span><span class="d">2025-09-09 공포</span><p>집중투표 배제 금지, 분리선출 감사위원 2명</p></div>
+    <div class="law"><span class="r">3차 개정 · 법률 제21448호</span><span class="d">2026-03-06 공포</span><p>자기주식 소각 의무</p></div>
+  </div>
+  <ol class="tl" aria-label="시행 일정">
+    <li class="past" data-scope="all"><span class="d">2025-07-22</span><span class="dot"></span><div class="body"><b>충실의무, 주주까지 확대<span class="st">시행 중</span></b><span>공포와 동시에 시행됐습니다.</span></div></li>
+    <li class="past" data-scope="all"><span class="d">2026-03-06</span><span class="dot"></span><div class="body"><b>자기주식 소각 의무<span class="st">시행 중</span></b><span>역시 공포와 동시에 시행됐습니다.</span></div></li>
+    <li class="past" data-scope="listed"><span class="d">2026-07-23</span><span class="dot"></span><div class="body"><b>사외이사가 독립이사로, 비율은 3분의 1로<span class="st">시행 중</span></b><span>공포 후 1년 만입니다. 감사위원 선임 시 3% 합산 확대도 같은 날 시행됐습니다.</span></div></li>
+    <li class="past" data-scope="large"><span class="d">2026-09-10</span><span class="dot"></span><div class="body"><b>집중투표 배제 금지, 분리선출 감사위원 2명<span class="st">2조원 이상</span></b><span>공포 후 1년 만에 시행됐습니다.</span></div></li>
+    <li class="today" data-scope="all"><span class="d">2026-11</span><span class="dot"></span><div class="body"><b>기준일</b><span>이 브리핑은 2026년 11월 기준으로 작성했습니다.</span></div></li>
+    <li data-scope="large"><span class="d">2027-01-01</span><span class="dot"></span><div class="body"><b>전자주주총회 의무화<span class="st">2조원 이상</span></b><span>개정 조항 가운데 유일하게 아직 시행 전입니다.</span></div></li>
+    <li class="due" data-scope="listed"><span class="d">2027-07-22</span><span class="dot"></span><div class="body"><b>독립이사 3분의 1 충족 시한</b><span>시행은 2026년 7월 23일이었지만, 기존 사외이사를 독립이사로 인정하고 비율을 맞출 수 있도록 1년의 유예기간을 뒀습니다.</span></div></li>
+    <li data-scope="all"><span class="d">2027-09 초</span><span class="dot"></span><div class="body"><b>기존 자기주식 소각 시한</b><span>개정 전부터 보유하던 자기주식은 2026년 3월 6일에서 6개월이 지난 날부터 1년 안에 소각해야 합니다. 정확한 날짜는 법무팀 확인이 필요합니다.</span></div></li>
+  </ol>
+  <p class="note">근거: 법률 제20991호·제21044호·제21448호 부칙 원문(법제처 국가법령정보센터)</p>
+</section>
+
+<section id="liability">
+  <div class="sec-head"><h2>이사회의 법적 책임은 어떻게 달라지나?</h2><span class="label">책임 구조 · 판단 기준 · 기록</span></div>
+  <p>책임의 구조 자체는 그대로입니다. 이사는 회사에 책임을 지고, 주주는 대표소송으로 그 책임을 묻습니다. 달라진 건 책임을 판단하는 잣대와 기록에 대한 부담입니다. 충실의무가 주주까지 넓어지면서 "이 결정이 일반주주에게도 공평했는가"가 새로운 판단 기준이 됐습니다. 그리고 이를 입증하는 기록이 곧 이사를 지키는 수단이 됩니다.</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>책임</th><th>내용</th><th>무엇이 달라졌나</th></tr></thead>
+      <tbody>
+        <tr><td>회사에 대한 책임</td><td>법령이나 정관을 위반하거나 임무를 게을리해 회사에 손해를 끼치면 배상해야 합니다.<span class="src">상법 제399조</span></td><td>충실의무 대상이 주주까지 넓어지면서, '임무를 다했는가'를 판단하는 잣대가 한층 엄격해집니다.</td></tr>
+        <tr><td>주주대표소송</td><td>회사가 이사의 책임을 묻지 않으면, 주주가 회사를 대신해 소송을 제기할 수 있습니다.<span class="src">상법 제403조, 상장회사 특례 제542조의6</span></td><td>충실의무 위반을 실제로 다투게 되는 통로가 이 소송입니다.</td></tr>
+        <tr><td>주주의 직접 청구</td><td>이사에게 고의나 중대한 과실이 있을 때만 가능합니다. 또 회사 재산이 줄어 주주가 결과적으로 입은 간접손해는 포함되지 않습니다.<span class="src">상법 제401조, 대법원 1993. 1. 26. 선고 91다36093 판결</span></td><td>이번 개정으로 주주에게 직접 배상하는 조항이 새로 생기지는 않았습니다.</td></tr>
+        <tr><td>감시의무</td><td>감시의무란 이사가 자기 담당 업무만 챙기는 게 아니라, 다른 이사와 경영진이 하는 일이 법령과 정관에 맞는지 살피고, 문제가 보이면 바로잡을 의무입니다. 선관주의의무에서 나오는 의무이고, 회사 일에 종사하지 않는 독립이사도 똑같이 집니다. 다만 위반을 판단하는 기준은 다릅니다. 독립이사는 내부통제시스템이 아예 없는데 구축을 요구하지 않았거나, 시스템이 제대로 돌아가지 않는다고 의심할 만한 신호를 보고도 외면하는 등의 경우 위반으로 인정될 수 있습니다. 반면 대표이사는 그 시스템을 직접 구축하고 작동시킬 의무까지 집니다.<span class="src">대법원 2022. 5. 12. 선고 2021다279347 판결(사외이사), 2021. 11. 11. 선고 2017다222368 판결(대표이사)</span></td><td>독립이사가 이사회의 3분의 1로 늘어나는 만큼, 이 의무를 지는 사람도 늘어납니다. 의심 신호를 보고도 외면했다면 "담당이 아니었다"는 방어가 되기 어렵습니다.</td></tr>
+        <tr data-scope="all"><td>과태료</td><td>독립이사 선임의무를 지키지 않거나 상장회사가 자기주식 소각 규정을 위반하면, 그 회사의 이사 등에게 5천만원 이하의 과태료가 부과됩니다.<span class="src">상법 제635조 제3항 제1호·제9호·제10호</span></td><td><span class="new">신설</span>자기주식 관련 과태료가 새로 생겼습니다.</td></tr>
+        <tr><td>서명 기록</td><td>자기주식을 보유하려면 이사 전원이 보유처분계획에 기명날인 또는 서명해야 합니다.<span class="src">상법 제341조의4 제4항</span></td><td><span class="new">신설</span>이사 한 사람 한 사람의 판단이 기록으로 남습니다.</td></tr>
+        <tr><td>업무집행지시자</td><td>영향력을 이용해 이사에게 업무집행을 지시한 지배주주 등은, 지시한 업무에 관해 이사와 같은 책임을 집니다.<span class="src">상법 제401조의2</span></td><td>이번 개정으로 이 개념이 독립이사의 정의에 들어가면서, 독립성을 판단하는 기준이 됐습니다.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3 style="font-size:1rem">이사를 지키는 세 가지 장치</h3>
+  <div class="shield">
+    <div><b>의사록</b><p>이해상충 안건마다 경영상 목적, 일반주주 영향, 반대 의견이 남아 있는지가 점검 항목입니다. 분쟁이 생기면 가장 먼저 꺼내 보게 되는 것이 이 기록입니다.</p></div>
+    <div><b>D&amp;O 보험 약관</b><p>주주가 제기한 청구까지 보상하는지, 대주주 배제 조항은 없는지가 갱신 전 확인 항목입니다.</p></div>
+    <div><b>법무부 가이드라인</b><p>합병 같은 조직개편 안건이라면, 법무부 「기업 조직개편 시 이사의 행위규범 가이드라인」(2026-02-25)에 맞춰 이사회 절차를 점검해 보실 만합니다.</p></div>
+  </div>
+</section>
+
+<section id="docs">
+  <div class="sec-head"><h2>이사회 의사록과 정관은 무엇이 달라지나?</h2><span class="label">의사록 · 정관</span></div>
+  <p>둘 다 점검 대상입니다. 의사록은 법이 요구하는 양식 자체는 그대로지만, 무엇을 적어 두느냐가 이사 개인의 책임과 직결되기 때문에 쓰는 방식을 다시 볼 필요가 있습니다. 정관은 회사 규모에 따라 법 개정으로 고쳐야 하는 조항과, 법적 의무는 없지만 정비를 검토할 만한 조항으로 나뉩니다.</p>
+  <div class="docs">
+    <div class="doc">
+      <h3>이사회 의사록</h3>
+      <p class="lead">법이 정한 기재 사항은 그대로입니다. 안건, 경과, 결과, 그리고 반대한 이사와 반대 이유입니다. 출석한 이사와 감사가 서명해야 하고, 주주는 열람을 청구할 수 있습니다.<span class="src" style="display:block;font-size:.84rem;color:var(--muted);font-weight:400">상법 제391조의3</span></p>
+      <ul>
+        <li data-scope="all"><span>반대 의견은 의사록에 기록되어야 의미가 있습니다. 그 결의가 법령·정관 위반이나 임무해태에 해당하면 찬성한 이사도 연대책임을 지는데, 의사록에 이의를 적은 기록이 없으면 찬성한 것으로 추정되기 때문입니다.<span class="src">상법 제399조 제2항·제3항</span></span></li>
+        <li data-scope="all"><span>이해상충 안건은 결론만이 아니라 다음 세 가지가 남아 있는지가 점검 항목입니다. 경영상 목적, 일반주주에게 미치는 영향, 그리고 반대 의견입니다. 충실의무가 주주까지 넓어진 뒤로는 이 기록이 "공평하게 대우했는가"를 입증하는 자료가 됩니다.<span class="src">상법 제382조의3</span></span></li>
+        <li data-scope="all"><span>자료를 언제 배포했는지도 기록해 둘 만한 항목입니다. 감시의무 위반을 따질 때 "이사가 무엇을 알 수 있었는가"가 쟁점이 되기 때문입니다.</span></li>
+        <li data-scope="all"><span>자기주식을 보유하려면 보유처분계획에 이사 전원이 기명날인 또는 서명해야 합니다. 의사록과는 별도의 서류이고, 매년 주총 승인을 받습니다.<span class="src">상법 제341조의4 제3항·제4항</span></span></li>
+        <li data-scope="all"><span>합병, 분할, 상장폐지 같은 조직개편 안건은 법무부 「기업 조직개편 시 이사의 행위규범 가이드라인」(2026-02-25)에 맞춰 검토 절차와 의사록 기재 항목을 함께 볼 필요가 있습니다.</span></li>
+      </ul>
+    </div>
+    <div class="doc">
+      <h3>정관</h3>
+      <p class="lead">법 개정으로 고쳐야 하는 것과 정비를 검토할 만한 것으로 나뉩니다.</p>
+      <ul>
+        <li data-scope="large"><span><b>집중투표 배제 조항 삭제.</b> 자산 2조원 이상 상장사는 정관으로 집중투표를 배제할 수 없게 돼, 2026년 9월 10일 이후 이사 선임을 위해 처음 소집하는 주총부터는 남아 있는 배제 조항을 내세울 수 없습니다. 혼선을 막으려면 삭제를 검토할 만합니다. 2026년 주총 시즌에 대부분의 대형 상장사가 조항을 단순 삭제하는 방식으로 정비했습니다.<span class="scope">2조원 이상</span><span class="src">상법 제542조의7 제3항, 법무법인 세종 리뷰</span></span></li>
+        <li data-scope="small"><span><b>집중투표 배제 조항 유지 가능.</b> 자산 2조원 미만 상장사는 그대로 둘 수 있습니다. 다만 기업지배구조보고서의 '집중투표제 채택' 지표(2026년 준수율 4.4%)로 비교 평가를 받습니다.<span class="scope">2조원 미만</span><span class="src">상법 제382조의2, 거래소 2026 집계(율촌 인용)</span></span></li>
+        <li data-scope="listed"><span><b>사외이사를 독립이사로 용어 정비.</b> 기존 사외이사는 독립이사로 간주되고(부칙 제2조), 정관이 개정 전 문구로 남아 있어도 3분의 1 요건 같은 법 규정은 그대로 적용됩니다. 그래서 정관 정비가 당장의 의무는 아닙니다. 다만 정관, 이사회 규정, 위원회 규정의 용어와 비율(4분의 1 → 3분의 1)을 2027년 정기주총 안건으로 정비할지가 검토 대상입니다.<span class="scope">상장사</span><span class="src">법률 제20991호 부칙 제2조, 상법 제542조의8</span></span></li>
+        <li data-scope="large"><span><b>분리선출 감사위원 인원 확인.</b> 정관에 분리선출 인원을 정해 두셨다면 법정 최소 2명과 맞는지가 확인 항목입니다. 3명 이상으로 정하는 것도 가능합니다.<span class="scope">2조원 이상</span><span class="src">상법 제542조의12 제2항</span></span></li>
+        <li data-scope="all"><span><b>자기주식 보유 사유를 정관에.</b> 신기술 도입이나 재무구조 개선 같은 경영상 목적으로 자기주식을 계속 보유하시려면, 그 사유를 주총 특별결의로 정관에 넣어야 보유 사유로 인정됩니다. 정관에 없으면 이 사유로는 보유할 수 없습니다.<span class="src">상법 제341조의4 제2항 제5호, 제434조</span></span></li>
+        <li data-scope="large"><span><b>전자주주총회 조항 점검.</b> 2027년부터 상장회사는 정관에 달리 정한 것이 없으면 이사회 결의로 전자주총을 열 수 있고, 자산 2조원 이상 상장사는 열어야 합니다. 정관에 전자주총을 막거나 제한하는 문구가 있는지가 점검 항목입니다.<span class="scope">2조원 이상 · 2027</span><span class="src">상법 제542조의14 제1항·제2항(2027-01-01 시행 개정규정)</span></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="five">
+  <div class="sec-head"><h2>핵심 시사점 다섯 가지</h2><span class="label">변화 · 시사점 · 권고</span></div>
+  <div class="cards">
+
+    <article class="card" data-scope="small">
+      <span class="no">1</span>
+      <div class="in">
+        <h3>독립이사 구인 경쟁이 시작됩니다 <span class="scope">2조원 미만</span></h3>
+        <div class="row"><span class="k">변화</span><p>독립이사란 회사 업무를 맡지 않는 사외이사 가운데, 사내이사·집행임원·업무집행지시자(지배주주가 해당할 수 있습니다)로부터 독립적으로 판단하는 이사를 말합니다. 이 독립이사 비율이 이사 총수의 4분의 1에서 3분의 1로 올라갑니다. 시한은 2027년 7월 22일이고, 못 맞추면 5천만원 이하 과태료 대상입니다.<span class="src">정의는 상법 제542조의8 제1항(사내이사, 집행임원, 업무집행지시자로부터 독립적인 기능을 수행하는 이사)과 제382조 제3항. 상법 제542조의8 제1항, 법률 제20991호 부칙 제2조, 제635조 제3항 제1호. 벤처·회생·신규상장 등 적용 제외 회사가 있습니다(시행령 제34조 제1항).</span></p></div>
+        <div class="row so"><span class="k">시사점</span><p>상장사들이 같은 시한을 보고 움직이니, 2027년 3월 주총 시즌에 후보 수요가 한꺼번에 몰리게 됩니다. 늦게 움직일수록 고를 수 있는 후보가 줄어듭니다. 기존 사외이사는 독립이사로 인정되지만, 재직 6년, 계열사 합산 9년 같은 결격 요건은 그대로 적용됩니다.</p></div>
+        <div class="row now"><span class="k">점검 포인트</span><p>일정을 거꾸로 세면, 2월 초 주총 소집 이사회 전까지 후보가 정해져 있어야 하므로 부족 인원과 교체 대상 파악은 12월이 출발점이 됩니다. 이사 수를 늘려서 맞추는 방법에는 함정이 있습니다. 9명이 10명이 되면 필요한 독립이사도 3명에서 4명으로 늘어납니다.</p></div>
+      </div>
+    </article>
+
+    <article class="card" data-scope="all">
+      <span class="no">2</span>
+      <div class="in">
+        <h3>결정보다 근거 관리가 핵심입니다</h3>
+        <div class="row"><span class="k">변화</span><p>충실의무란 이사가 자기 이익이나 특정인의 이익이 아니라 회사를 위해서 직무를 수행해야 한다는 의무입니다. 쉽게 말씀드리면, 특정 주주가 아니라 회사와 전체 주주를 위해 일하라는 뜻입니다. 이번 개정으로 그 대상이 회사에서 회사와 주주로 넓어졌고, 모든 주주를 공평하게 대우해야 한다는 문장이 새로 들어갔습니다. 2025년 7월 22일부터 이미 시행되고 있고, 비상장 주식회사에도 적용됩니다.<span class="src">상법 제382조의3</span></p></div>
+        <div class="row"><span class="k">함께 볼 것</span><p>이사에게는 충실의무와 별개로 선관주의의무도 있습니다. 회사와 이사의 관계는 민법의 위임 관계를 따르기 때문에, 이사는 남의 일을 맡은 사람으로서 '선량한 관리자의 주의'를 다해야 합니다. 그 자리에 있는 전문가라면 당연히 했을 만큼 살피고 확인하라는 뜻입니다. 선관주의의무가 '얼마나 꼼꼼하게 일했는가'를 묻는다면, 충실의무는 '누구를 위해 일했는가'를 묻습니다. 앞의 감시의무도 이 선관주의의무에서 나옵니다.<span class="src">상법 제382조 제2항(민법 위임 규정 준용)</span></p></div>
+        <div class="row so"><span class="k">시사점</span><p>합병, 유상증자, 전환사채(CB) 발행, 계열사 거래, 자기주식 처분처럼 지배주주와 일반주주의 이해가 엇갈리는 안건은 분쟁으로 번질 소지가 있습니다. 참고할 만한 사례로 고려아연 신주발행 가처분이 있습니다. 당시 법원은 경영상 목적을 인정해 신청을 기각했는데, 근거가 분명하면 결정이 유지될 수 있다는 뜻으로 읽힙니다. 다만 1심 법원의 가처분 결정이고, 본안에서 다툴 여지가 남아 있다는 보도가 있으나 진행 상황은 확인하지 못했습니다.<span class="src">서울중앙지방법원 2025카합22020, 2025-12-24. 회사 공시와 보도 기준이며 결정문 원문은 대조하지 않았습니다.</span></p></div>
+        <div class="row now"><span class="k">점검 포인트</span><p>다음 이사회부터는 이해상충 안건마다 세 가지가 이사회 자료와 의사록에 남아 있는지가 점검 항목입니다. 경영상 목적, 일반주주에게 미치는 영향, 그리고 반대 의견입니다.</p></div>
+      </div>
+    </article>
+
+    <article class="card" data-scope="large">
+      <span class="no">3</span>
+      <div class="in">
+        <h3>이사회에 반대 목소리가 들어올 수 있습니다 <span class="scope">2조원 이상</span></h3>
+        <div class="row"><span class="k">변화</span><p>정관으로 집중투표를 배제할 수 없게 됐습니다. 감사위원 가운데 2명은 다른 이사와 분리해서 선출하고, 감사위원을 선임하거나 해임할 때 최대주주는 특수관계인 지분까지 합쳐 3%까지만 의결권을 행사할 수 있습니다.<span class="src">상법 제542조의7 제3항, 제542조의12 제2항·제4항, 시행령 제33조·제37조</span></p></div>
+        <div class="row so"><span class="k">시사점</span><p>이사회 과반 구성은 지금처럼 지분 구조에 따라 정해집니다. 다만 지분 1% 이상 주주가 집중투표를 청구하거나 감사위원을 분리선출하는 자리에서는, 소수주주 측 후보가 이사회와 감사위원회에 들어올 수 있습니다. 실제로 주주제안도 늘고 있습니다. 2026년 주총 시즌 정관변경 주주제안은 66건으로, 직전 집계 42건보다 늘었습니다.<span class="src">법무법인 율촌 집계, 법률신문 2026-04-16</span></p></div>
+        <div class="row now"><span class="k">점검 포인트</span><p>점검 대상은 주요 주주 구성과, 3%를 합산한 뒤의 의결권입니다. 집중투표 청구 마감은 직전 연도 정기주총일을 기준으로 6주 전입니다. 지난해 주총이 3월 하순이었다면 2월 초중순이 마감이므로, 그 전까지 마련된 대응 절차가 점검 대상입니다.</p></div>
+      </div>
+    </article>
+
+    <article class="card" data-scope="all">
+      <span class="no">4</span>
+      <div class="in">
+        <h3>자기주식은 원칙적으로 소각해야 합니다</h3>
+        <div class="row"><span class="k">변화</span><p>회사가 취득한 자기주식은 1년 안에 소각해야 합니다. 예외는 임직원 보상, 우리사주, 정관에 정한 경영상 목적 같은 법정 사유가 있을 때뿐이고, 이 경우에도 이사 전원이 서명한 보유처분계획을 매년 주총에서 승인받아야 합니다. 이미 보유 중인 자기주식도 2027년 9월 초까지 소각 대상입니다(정확한 날짜는 법무팀 확인 필요).<span class="src">상법 제341조의4 제1항~제4항, 법률 제21448호 부칙 제2조</span></p></div>
+        <div class="row so"><span class="k">시사점</span><p>앞으로 자기주식 매입은 소각을 전제로 한 결정입니다. 계속 보유하려면 그 이유를 해마다 주주총회에서 승인받아야 하고, 계획서 서명은 이사 개인의 판단 기록으로도 남습니다. 자기주식을 우호세력에 넘기면 의결권 자문사 Glass Lewis가 관련 이사 선임에 반대를 권고할 수 있다는 점도 함께 볼 대목입니다.<span class="src">Glass Lewis 2027 한국 정책(2027-01-01~08-31 주총 적용), 법무법인 세종 리뷰 2026-11-11</span></p></div>
+        <div class="row now"><span class="k">점검 포인트</span><p>보유 중인 자기주식마다 남은 선택지는 두 가지입니다. 소각하거나, 법정 사유를 확인해 보유처분계획을 주총에 올리는 것입니다. 2027년 기업지배구조보고서에도 자기주식 현황을 기재해야 하므로, 주주환원 계획과 메시지가 어긋나지 않는지도 점검 대상입니다.</p></div>
+      </div>
+    </article>
+
+    <article class="card" data-scope="listed">
+      <span class="no">5</span>
+      <div class="in">
+        <h3>다른 회사와 비교 평가를 받게 됩니다 <span class="scope">상장사</span></h3>
+        <div class="row"><span class="k">변화</span><p>기업지배구조보고서 제출 대상이시라면(해당 여부는 법무팀 확인) 2027년 제출분부터 기재 항목이 늘어납니다. 전자주총 개최 여부, 감사위원 분리선출, 자기주식 현황, 그리고 집중투표에 영향을 주는 이사 수·임기 변경 사유입니다. 의결권 자문사 ISS도 자산 2조원 미만 회사의 이사회 독립성 기준을 25%에서 3분의 1로 올리는 안을 2026년 10월 22일 내놓았습니다(2027년 7월 23일 이후 주총부터 적용, 2026년 11월 말 확정 예정).<span class="src">법무법인 태평양 리뷰 2026-11-09, 세종 리뷰 2026-11-11</span></p></div>
+        <div class="row so"><span class="k">시사점</span><p>이제는 법을 지키는 것만으로는 충분하지 않고, 다른 회사와 비교한 수준으로도 평가를 받습니다. 참고로 2026년 보고서를 낸 비금융 789개사의 핵심지표 평균 준수율은 48.0%였습니다. '사외이사의 이사회 의장 선임'은 11.4%, 'CEO 승계정책'은 29.0%에 그쳤습니다.<span class="src">율촌 리뷰, 한국거래소 2026-06-02 자료 인용</span></p></div>
+        <div class="row now"><span class="k">점검 포인트</span><p>2027년 보고서 항목에 맞춘 자사 현황표가 있으면 어디가 비어 있는지 드러납니다. 그다음, 귀사는 충족하지 못했지만 다른 회사들의 준수율이 높은 지표 두세 개가 이사회 안건 검토 대상입니다.</p></div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section id="lens">
+  <div class="sec-head"><h2>직책별 시사점</h2><span class="label">내 자리에서 읽기</span></div>
+  <div class="lens-tabs" role="tablist" aria-label="역할 선택">
+    <button type="button" role="tab" id="t-ceo" aria-selected="true" aria-controls="lens-panel" data-lens="ceo">CEO</button>
+    <button type="button" role="tab" id="t-cfo" aria-selected="false" aria-controls="lens-panel" data-lens="cfo">CFO</button>
+    <button type="button" role="tab" id="t-owner" aria-selected="false" aria-controls="lens-panel" data-lens="owner">지배주주 측 경영기획</button>
+    <button type="button" role="tab" id="t-ind" aria-selected="false" aria-controls="lens-panel" data-lens="ind">독립이사·이사회 의장</button>
+  </div>
+  <div class="lens-panel" id="lens-panel" role="tabpanel" aria-live="polite"></div>
+</section>
+
+<section id="act">
+  <div class="sec-head"><h2>주총 전 이사회 결정 사항</h2><span class="label">피해야 할 실수와 함께</span></div>
+  <div class="two">
+    <div class="stop">
+      <h3>피해야 할 실수</h3>
+      <ul>
+        <li>주총 소집 직전에야 독립이사 후보를 급히 찾는 것</li>
+        <li>의사록에 결론만 적는 것</li>
+        <li>자기주식을 우호세력에 넘기는 것</li>
+        <li>근거 없이 이사 수나 임기를 바꾸는 것. 2027년 지배구조보고서에 사유를 밝혀야 하고, 충실의무 분쟁으로 번질 수 있습니다.</li>
+      </ul>
+    </div>
+    <div class="dec">
+      <ol>
+        <li data-scope="small"><span class="n">01</span><span><b>독립이사 부족 인원과 후보 일정</b><span class="sub">재직 6년·9년 상한 점검 포함</span></span><span class="when">2026-12 · 이사회 사무국</span></li>
+        <li data-scope="all"><span class="n">02</span><span><b>이해상충 안건 검토·의사록 양식</b><span class="sub">경영상 목적, 일반주주 영향, 반대 의견</span></span><span class="when">다음 이사회 · 법무</span></li>
+        <li data-scope="all"><span class="n">03</span><span><b>자기주식 소각 또는 보유 계획</b><span class="sub">주주환원 계획과 메시지 일치</span></span><span class="when">2027 주총 전 · 재무</span></li>
+        <li data-scope="large"><span class="n">04</span><span><b>집중투표·분리선출 대응, 전자주총 준비</b><span class="sub">2조원 이상</span></span><span class="when">2026-12 · 법무·IR</span></li>
+        <li data-scope="listed"><span class="n">05</span><span><b>2027 지배구조보고서 기준 현황표</b><span class="sub">지키지 못한 지표 중 타사 준수율이 높은 2~3개를 안건으로</span></span><span class="when">2027 1분기 · 이사회 사무국</span></li>
+        <li data-scope="all"><span class="n">06</span><span><b>이사회 보호 장치 점검</b><span class="sub">D&amp;O 보험(임원배상책임보험) 약관, 조직개편 안건은 법무부 「기업 조직개편 시 이사의 행위규범 가이드라인」(2026-02-25) 반영</span></span><span class="when">다음 갱신 전 · 재무·법무</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <a class="cta" href="legal.html">조문, 판례, 부칙 근거를 모두 보려면 법률 상세 보기 →</a>
+  <p><b>근거.</b> 법제처 국가법령정보센터의 상법(시행 2026-09-10), 시행 예정본(2027-01-01), 상법 시행령, 법률 제20991호·제21044호·제21448호 부칙 원문. 시장 자료는 법무법인 세종·율촌·태평양 리뷰와 한국거래소 자료를 인용했습니다.</p>
+  <p><b>고지.</b> 이 브리핑은 Claude를 활용해 법제처 국가법령정보센터의 법령 원문과 대조해 작성한 일반 정보이며, 법률 자문이 아닙니다. 기준일(2026년 11월) 이후의 개정, 시행령, 판례는 반영되지 않았을 수 있고, 내용의 정확성과 완전성을 보증하지 않습니다. 개별 회사의 적용 여부와 대응은 법무팀 또는 외부 법률 자문으로 확인하시기 바랍니다. 금융회사는 「금융회사의 지배구조에 관한 법률」이 함께 적용됩니다.</p>
+</footer>
+</div>
+
+<script>
+(function(){
+  var LENS={
+    ceo:{say:"이사회가 대표님의 결정에 이유를 더 자주 묻게 됩니다. 그 질문에 답한 기록이 결국 대표님을 보호합니다.",
+      items:["이해상충 안건마다 경영상 목적과 일반주주에게 미치는 영향을 정리한 자료가 있는지가 검토 항목입니다.","독립이사 후보는 2월 초 주총 소집 이사회 전까지 정해져 있어야 하므로, 역산하면 물색은 12월이 출발점입니다.","2027년 지배구조보고서 항목 가운데 다른 회사 준수율은 높은데 자사가 충족하지 못한 지표가 무엇인지 확인해 볼 만합니다."],
+      src:"근거: 상법 제382조의3, 제542조의8, 한국거래소 2026 보고서 집계(율촌 인용)"},
+    cfo:{say:"자기주식, 증자, 전환사채가 이사회와 주총의 핵심 안건으로 올라옵니다. 자본 배분 계획을 주주에게 설명하는 논리가 더 중요해집니다.",
+      items:["보유 중인 자기주식마다 소각할지, 법정 사유(임직원 보상, 우리사주, 정관에 정한 경영상 목적 등)로 보유처분계획을 승인받아 보유할지가 정해져야 합니다. 기존 보유분의 소각 기한은 2027년 9월 초입니다.","증자와 CB 안건에서는 자금 용도와 일반주주 지분 희석 효과가 설명의 핵심이 됩니다.","(2조원 이상) 감사위원 선임 표결에서는 최대주주와 특수관계인 지분을 합친 뒤 3%를 넘는 부분에 의결권이 없습니다. 주주명부 확정일 기준 합산표가 점검 항목입니다.","주주환원 계획과 지배구조보고서의 자본 배분 메시지가 서로 맞는지가 검토 항목입니다."],
+      src:"근거: 상법 제341조의4, 법률 제21448호 부칙 제2조, 제542조의12 제4항"},
+    owner:{say:"이사회 과반 구성은 지금처럼 지분 구조에 따라 정해집니다. 달라지는 건 두 가지입니다. 소수주주 측 후보가 들어올 통로가 생겼고, 모든 결정에 설명 책임이 따른다는 점입니다.",
+      items:["(2조원 이상) 지분 1% 이상 주주가 집중투표를 청구하면 소수주주 측 후보가 이사로 선임될 수 있습니다. 주주 구성과 청구 가능성이 점검 대상입니다.","감사위원을 선임할 때는 특수관계인 지분을 합쳐 3%까지만 의결권을 행사할 수 있습니다.","이사 수나 임기를 바꾸시면 그 사유를 2027년 지배구조보고서에 밝혀야 합니다. 경영상 이유 없는 변경은 분쟁의 빌미가 될 수 있습니다.","CEO 승계 원칙을 이사회에서 논의하고 기록했는지도 보고서 지표입니다. 2026년 보고서에서 이 지표를 충족한 회사는 29.0%였습니다."],
+      src:"근거: 상법 제542조의7, 제542조의12, 지배구조보고서 가이드라인 개정(태평양 리뷰), 거래소 2026 집계"},
+    ind:{say:"감시의무 자체는 사내이사와 같고, 위반을 판단하는 기준만 다릅니다. 묻고, 요구하고, 그 기록을 남기는 것이 독립이사 본인을 지키는 방법입니다.",
+      items:["내부통제시스템이 없는데 구축을 요구하지 않았거나, 이상 신호를 보고도 외면했다면 위반이 인정될 수 있습니다(대법원 2021다279347).","독립이사가 요청할 수 있는 자료의 예. 독립이사 부족 인원표, 사외이사별 결격사유 점검표, 이해상충 안건 검토 양식.","D&O 보험이 주주가 제기한 청구까지 보상하는지가 갱신 전 확인 항목입니다.","2026년 지배구조보고서를 낸 비금융 789개사 가운데 사외이사가 이사회 의장을 맡은 곳은 11.4%입니다. 의장 분리를 안건으로 올릴지도 검토해 보실 만합니다."],
+      src:"근거: 대법원 2022. 5. 12. 선고 2021다279347 판결, 거래소 2026 집계(율촌 인용)"}
+  };
+  var panel=document.getElementById('lens-panel'), tabs=document.querySelectorAll('.lens-tabs button');
+  function show(k){
+    var L=LENS[k];
+    tabs.forEach(function(t){t.setAttribute('aria-selected',String(t.dataset.lens===k))});
+    panel.innerHTML='<p class="say">'+L.say.split(/(?<=\.)\s+/).map(function(t){return '<span class="ln">'+t+'</span>'}).join(' ')+'</p><ul>'+L.items.map(function(i){return '<li>'+i+'</li>'}).join('')+'</ul><p class="src">'+L.src+'</p>';
+  }
+  tabs.forEach(function(t){t.addEventListener('click',function(){show(t.dataset.lens)})});
+  show('ceo');
+
+  var seg=document.getElementById('seg');
+  function size(v){
+    seg.querySelectorAll('button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.v===v))});
+    document.querySelectorAll('[data-for]').forEach(function(x){x.hidden=x.dataset.for!==v});
+    document.querySelectorAll('[data-scope]').forEach(function(x){
+      var s=x.dataset.scope, dim;
+      if(v==='unlisted') dim = s!=='all';
+      else dim = s!=='all' && s!=='listed' && s!==v;
+      x.classList.toggle('is-dim', dim);
+    });
+    try{localStorage.setItem('size',v)}catch(e){}
+  }
+  seg.addEventListener('click',function(e){var b=e.target.closest('button'); if(b) size(b.dataset.v)});
+  var saved='small'; try{saved=localStorage.getItem('size')||'small'}catch(e){}
+  size(saved);
+})();
+</script>
+</body>
+</html>
